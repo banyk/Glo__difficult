@@ -13,7 +13,7 @@
 // alert('Результат равен ' + result);
 // alert('Первые две цифры равны ' + result.toString().substring(0, 2));
 
-//lesson03
+//lesson03 задача на дни недели
 
 let lang = prompt('Введите наименование языка (ru или en)');
 let arr = [
@@ -39,4 +39,14 @@ switch (lang) {
 		console.log('Что-то пошло не так :(');
 }
 
-let answer = lang === 'en' ? console.log(arr[0]) : console.log(arr[1]);
+let answer = lang === 'en' ? console.log(arr[0]) : lang === 'ru' ? console.log(arr[1]) : console.log('Что-то пошло не так:(');
+
+// lesson03 задача на имя пользователя
+
+let namePerson = prompt('Введите имя');
+let notBoss,
+	isBoss;
+
+
+let whichPerson = namePerson === 'Артем' || namePerson === 'Артём' ?
+	console.log('Директор') : namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент');
