@@ -1,4 +1,6 @@
-// let num = 266219;
+'use strict';
+
+/* // let num = 266219;
 // let arrOfNums = num.toString().split('');
 // let result;
 
@@ -49,4 +51,23 @@ let notBoss,
 
 
 let whichPerson = namePerson === 'Артем' || namePerson === 'Артём' ?
-	console.log('Директор') : namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент');
+	console.log('Директор') : namePerson === 'Максим' ? console.log('Преподователь') : console.log('Студент'); */
+
+
+// lesson 04 hard
+
+const trimString = function (data) {
+	if (typeof data !== typeof '') {
+		alert('Вы передали не строку');
+	}
+	if (data.length > 30) {
+		return data.trim().substring(0, 29) + '...';
+		/* здесь не был уверен, что сделать сначала, обрезать пробелы или заменить на точки
+		но сюда по очередности действий в ТЗ, сначала надо было убрать пробелы */
+
+	} else {
+		return data.trim();
+	}
+};
+
+console.log(trimString(' 1 1313131 3 13 qqqqqqqqqq '));
