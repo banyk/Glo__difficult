@@ -41,7 +41,8 @@ switch (lang) {
 		console.log('Что-то пошло не так :(');
 }
 
-let answer = lang === 'en' ? console.log(arr[0]) : lang === 'ru' ? console.log(arr[1]) : console.log('Что-то пошло не так:(');
+let answer = lang === 'en' ? console.log(arr[0]) : lang === 'ru' ?
+ console.log(arr[1]) : console.log('Что-то пошло не так:(');
 
 // lesson03 задача на имя пользователя
 
@@ -57,17 +58,15 @@ let whichPerson = namePerson === 'Артем' || namePerson === 'Артём' ?
 // lesson 04 hard
 
 const trimString = function (data) {
-	if (typeof data !== typeof '') {
+	if (typeof data !== 'string') {
 		alert('Вы передали не строку');
 	}
-	if (data.length > 30) {
+	if (data.trim().length > 30) {
 		return data.trim().substring(0, 29) + '...';
-		/* здесь не был уверен, что сделать сначала, обрезать пробелы или заменить на точки
-		но сюда по очередности действий в ТЗ, сначала надо было убрать пробелы */
-
 	} else {
 		return data.trim();
 	}
 };
 
-console.log(trimString(' 1 1313131 3 13 qqqqqqqqqq '));
+
+console.log(trimString('       asdasdasdad   adadad       йвйвфывйуй     '));
