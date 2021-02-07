@@ -56,7 +56,7 @@ let whichPerson = namePerson === 'Артем' || namePerson === 'Артём' ?
 
 
 // lesson 04 hard
-
+/* 
 const trimString = function (data) {
 	if (typeof data !== 'string') {
 		alert('Вы передали не строку');
@@ -69,4 +69,26 @@ const trimString = function (data) {
 };
 
 
-console.log(trimString('       asdasdasdad   adadad       йвйвфывйуй     '));
+console.log(trimString('       asdasdasdad   adadad       йвйвфывйуй     ')); */
+
+// lesson 05 hard
+
+const arr = ['24565', '34465644', '13744', '444875', '944245', '241244', '447845'];
+
+arr.forEach(function (item) {
+	if (item[0] === '2' || item[0] === '4') {
+		console.log(item);
+	}
+});
+// вывод чисел начинающихся с 2 или 4
+
+label:
+	for (let i = 2; i <= 100; i++) {
+
+		for (let j = 2; j < i; j++) {
+			if (i % j === 0) {
+				continue label;
+			}
+		}
+		console.log(i + ' Делители этого числа: 1 и ' + i);
+	}
