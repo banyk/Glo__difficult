@@ -77,7 +77,7 @@ const arr = ['24565', '34465644', '13744', '444875', '944245', '241244', '447845
 
 arr.forEach(function (item) {
 	if (item[0] === '2' || item[0] === '4') {
-		console.log(item);
+		// console.log(item);
 	}
 });
 // вывод чисел начинающихся с 2 или 4
@@ -90,5 +90,32 @@ label:
 				continue label;
 			}
 		}
-		console.log(i + ' Делители этого числа: 1 и ' + i);
+		// console.log(i + ' Делители этого числа: 1 и ' + i);
 	}
+// вывод простых чисел 
+
+// lesson 06 hard1) 
+/* Создать массив week и записать в него дни недели в виде строк
+
+·        Вывести на экран все дни недели,   каждый из них с новой строчки
+
+·        Выходные дни - курсивом
+
+·        Текущий день - жирным шрифтом(использовать объект даты) */
+
+let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+let date = new Date();
+let today = date.getDay();
+
+week.forEach(function (item, i) {
+	let elem = document.createElement('span');
+	elem.textContent = item;
+	if (item === 'Суббота' || item === 'Воскресенье') {
+		elem.style.fontStyle = 'Italic';
+	}
+	if (i === today - 1 || i === 6 && today === 0) {
+		elem.style.fontWeight = 700;
+	}
+	let br = document.createElement('br');
+	document.body.append(elem, br);
+});
