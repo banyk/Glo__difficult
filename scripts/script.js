@@ -1,5 +1,43 @@
 'use strict';
 
+const makeNewColor = () => {
+	const symbols = '0123456789ABCDEF';
+	let color = '#';
+	for (let i = 0; i < 6; i++) {
+		color = color + symbols[Math.floor(Math.random() * 16)];
+	}
+
+	document.body.style.background = color;
+	document.getElementById('color').textContent = color;
+};
+
+document.addEventListener('click', event => {
+	if (event.target.matches('#btn-color')) {
+		makeNewColor();
+	}
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* // let num = 266219;
 // let arrOfNums = num.toString().split('');
 // let result;
@@ -73,30 +111,30 @@ console.log(trimString('       asdasdasdad   adadad       йвйвфывйуй  
 
 // lesson 05 hard
 
-const arr = ['24565', '34465644', '13744', '444875', '944245', '241244', '447845'];
+// const arr = ['24565', '34465644', '13744', '444875', '944245', '241244', '447845'];
 
-arr.forEach(function (item) {
-	if (item[0] === '2' || item[0] === '4') {
-		// console.log(item);
-	}
-});
-// вывод чисел начинающихся с 2 или 4
+// arr.forEach(function (item) {
+// 	if (item[0] === '2' || item[0] === '4') {
+// 		// console.log(item);
+// 	}
+// });
+// // вывод чисел начинающихся с 2 или 4
 
-label:
-	for (let i = 2; i <= 100; i++) {
+// label:
+// 	for (let i = 2; i <= 100; i++) {
 
-		for (let j = 2; j < i; j++) {
-			if (i % j === 0) {
-				continue label;
-			}
-		}
-		// console.log(i + ' Делители этого числа: 1 и ' + i);
-	}
+// 		for (let j = 2; j < i; j++) {
+// 			if (i % j === 0) {
+// 				continue label;
+// 			}
+// 		}
+// 		// console.log(i + ' Делители этого числа: 1 и ' + i);
+// 	}
 // вывод простых чисел 
 
-// lesson 06 hard1) 
+// lesson 06 hard
 
-let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+/* let week = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 let date = new Date();
 let today = date.getDay();
 
@@ -112,3 +150,74 @@ week.forEach(function (item, i) {
 	let br = document.createElement('br');
 	document.body.append(elem, br);
 });
+
+ */
+
+//fre  array.forEach(currentItem => {});
+
+/* 
+1) Выведите на страницу текущую дату и время в 2-х форматах: 
+a) 'Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'  
+б) '04.02.2020 - 21:05:33' 
+2) Для вывода в формате (а) напишите функцию, которая будет менять склонение слов в зависимости от числа, "час, часов, часа"
+3) Для вывода в формате (б) напишите функцию, которая будет добавлять 0 перед значениями которые состоят из одной цифры (из 9:5:3  1.6.2019 сделает 09:05:03 01.06.2019)
+4) С помощью функции setInterval, реализуйте обновление даты и времени каждую секунду 
+ */
+
+/* 
+0 часов
+1 час
+2 часа
+3	часа
+4 часа
+5-20 часов
+21 час
+22 часа
+23 часа
+24 часа
+*/
+
+
+// б 
+
+// let date = new Date();
+// const showTime = () => {
+
+// 	let options = {
+// 			year: 'numeric',
+// 			month: 'long',
+// 			day: 'numeric',
+// 			weekday: 'long',
+
+// 		},
+// 		options2 = {
+// 			hour: 'numeric',
+// 			minute: 'numeric',
+// 			second: 'numeric'
+// 		};
+// 	let today = date.toLocaleString('ru', options),
+// 		hours = date.getHours(),
+// 		seconds = date.getSeconds(),
+// 		message;
+// 	if (hours === 21 || hours === 1) {
+// 		message = 'час';
+// 	} else if (hours === 2 || hours === 3 || hours === 4 || hours === 22 || hours === 23 || hours === 24) {
+// 		message = 'часа';
+// 	} else {
+// 		message = 'часов';
+// 	}
+
+// 	// setInterval(() => {
+// 	// 	seconds = date.getSeconds();
+// 	// }, 1000);
+
+
+// 	today = 'Сегодня ' + today.substring(0, today.length - 1) + 'ода';
+
+
+// 	document.body.append(today);
+
+// 	console.log(today);
+// };
+
+// showTime();
