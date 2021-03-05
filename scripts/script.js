@@ -1,6 +1,92 @@
 'use strict';
+const showTime = () => {
 
-const makeNewColor = () => {
+	const getTime = () => {
+		let date = new Date();
+		let options = {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+				weekday: 'long',
+			},
+			options2 = {
+				year: 'numeric',
+				month: 'numeric',
+				day: 'numeric',
+				hour: 'numeric',
+				minute: 'numeric',
+				second: 'numeric'
+			};
+		let today = date.toLocaleString('ru', options),
+			hours = date.getHours(),
+			minutes = date.getMinutes(),
+			seconds = date.getSeconds(),
+			today2 = date.toLocaleString('ru', options2);
+
+		return {
+			seconds,
+			minutes,
+			hours,
+			today,
+			today2
+		};
+
+	};
+
+	const updateTime = () => {
+		const time = getTime();
+
+		const declOfNum = (n, textForms) => {
+			n = Math.abs(n) % 100;
+			let n1 = n % 10;
+			if (n > 10 && n < 20) {
+				return textForms[2];
+			}
+			if (n1 > 1 && n1 < 5) {
+				return textForms[1];
+			}
+			if (n1 === 1) {
+				return textForms[0];
+			}
+			return textForms[2];
+		};
+
+
+		time.today =
+			`Сегодня ${time.today.substring(0, time.today.length - 1)}ода, 
+			${time.hours} ${declOfNum(time.hours,['час','часа','часов'])},
+			${time.minutes} ${declOfNum(time.minutes,['минута','минуты','минут'])},
+		${time.seconds} ${declOfNum(time.seconds,['секунда','секунды','секунд'])} `;
+
+		document.getElementById('time').textContent = time.today;
+		document.getElementById('time2').textContent = time.today2;
+	};
+
+	updateTime();
+	setInterval(updateTime, 1000);
+};
+
+
+showTime();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* const makeNewColor = () => {
 	const symbols = '0123456789ABCDEF';
 	let color = '#';
 	for (let i = 0; i < 6; i++) {
@@ -15,25 +101,7 @@ document.addEventListener('click', event => {
 	if (event.target.matches('#btn-color')) {
 		makeNewColor();
 	}
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}); */
 
 
 
@@ -154,70 +222,3 @@ week.forEach(function (item, i) {
  */
 
 //fre  array.forEach(currentItem => {});
-
-/* 
-1) Выведите на страницу текущую дату и время в 2-х форматах: 
-a) 'Сегодня Вторник, 4 февраля 2020 года, 21 час 5 минут 33 секунды'  
-б) '04.02.2020 - 21:05:33' 
-2) Для вывода в формате (а) напишите функцию, которая будет менять склонение слов в зависимости от числа, "час, часов, часа"
-3) Для вывода в формате (б) напишите функцию, которая будет добавлять 0 перед значениями которые состоят из одной цифры (из 9:5:3  1.6.2019 сделает 09:05:03 01.06.2019)
-4) С помощью функции setInterval, реализуйте обновление даты и времени каждую секунду 
- */
-
-/* 
-0 часов
-1 час
-2 часа
-3	часа
-4 часа
-5-20 часов
-21 час
-22 часа
-23 часа
-24 часа
-*/
-
-
-// б 
-
-// let date = new Date();
-// const showTime = () => {
-
-// 	let options = {
-// 			year: 'numeric',
-// 			month: 'long',
-// 			day: 'numeric',
-// 			weekday: 'long',
-
-// 		},
-// 		options2 = {
-// 			hour: 'numeric',
-// 			minute: 'numeric',
-// 			second: 'numeric'
-// 		};
-// 	let today = date.toLocaleString('ru', options),
-// 		hours = date.getHours(),
-// 		seconds = date.getSeconds(),
-// 		message;
-// 	if (hours === 21 || hours === 1) {
-// 		message = 'час';
-// 	} else if (hours === 2 || hours === 3 || hours === 4 || hours === 22 || hours === 23 || hours === 24) {
-// 		message = 'часа';
-// 	} else {
-// 		message = 'часов';
-// 	}
-
-// 	// setInterval(() => {
-// 	// 	seconds = date.getSeconds();
-// 	// }, 1000);
-
-
-// 	today = 'Сегодня ' + today.substring(0, today.length - 1) + 'ода';
-
-
-// 	document.body.append(today);
-
-// 	console.log(today);
-// };
-
-// showTime();
